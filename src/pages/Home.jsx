@@ -12,9 +12,9 @@ const Home = () => {
         <SetAPIKey></SetAPIKey>
       ) : (
         <div>
-          CodeBot'a Hoşgeldiniz
-          <br />
-          Lütfen Giriş Yapınız
+          <div className='welcome-message'>
+            <h1>CodeBot'a Hoş Geldiniz</h1>
+          </div>
         </div>
       )}
     </div>
