@@ -1,23 +1,28 @@
 import React, { useState } from 'react';
-import '../styles/Home.css';
-import SetAPIKey from '../components/SetAPIKey';
+import SetAPIKey, { WelcomeMessage } from '../components/SetAPIKey';
 import { UserAuth } from '../context/AuthContext';
-import ChatBot from './ChatBot';
+import styled from 'styled-components';
+
+const HomeContainer = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 100vh;
+text-align: center;
+}
+`;
 const Home = () => {
   const [apiKey] = useState(localStorage.getItem('apiKey'));
   const { user } = UserAuth();
   return (
-    <div className='home-container' style={{ textAlign: 'center' }}>
+    <HomeContainer>
       {!apiKey && user ? (
         <SetAPIKey></SetAPIKey>
       ) : (
-        <div>
-          <div className='welcome-message'>
-            <h1>CodeBot'a Hoş Geldiniz</h1>
-          </div>
-        </div>
+        <WelcomeMessage></WelcomeMessage>
       )}
-    </div>
+    </HomeContainer>
   );
 };
 
